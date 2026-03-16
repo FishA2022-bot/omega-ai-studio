@@ -1,0 +1,25 @@
+# Omega AI Studio
+
+Omega AI Studio is a platform that uses AI agents to plan, build, test, and deploy software.
+
+## Features
+
+- AI development agents
+- Automated coding
+- Git integration
+- Task orchestration
+- Project dashboard
+
+## Agents
+
+- Governor Agent – plans development
+- Creator Agent – writes code
+- Launcher Agent – runs builds/tests
+- Guardian Agent – checks security
+
+## Tech Stack
+
+- Next.js
+- Node.js
+- PostgreSQL
+- Prisma

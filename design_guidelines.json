@@ -1,0 +1,102 @@
+{
+  "theme": "light",
+  "archetype": "4 (Swiss & High-Contrast)",
+  "typography": {
+    "heading_font": "IBM Plex Sans",
+    "body_font": "Inter",
+    "mono_font": "JetBrains Mono",
+    "scale": {
+      "h1": "text-4xl tracking-tighter font-semibold",
+      "h2": "text-2xl tracking-tight font-medium",
+      "h3": "text-lg font-medium",
+      "body": "text-sm leading-relaxed",
+      "mono": "text-xs font-mono tracking-tight",
+      "label": "text-[10px] uppercase tracking-[0.2em] font-bold"
+    }
+  },
+  "colors": {
+    "background": "#FFFFFF",
+    "surface": "#F9FAFB",
+    "surface_secondary": "#F3F4F6",
+    "border": "#E5E7EB",
+    "text_primary": "#0A0A0A",
+    "text_secondary": "#4B5563",
+    "accents": {
+      "primary": "#002FA7",
+      "success": "#10B981",
+      "warning": "#F59E0B",
+      "danger": "#EF4444",
+      "neutral_state": "#9CA3AF"
+    }
+  },
+  "layout_and_spacing": {
+    "philosophy": "The Control Room Grid. Dense, structured, function-first layout prioritizing scanability.",
+    "app_layout": "h-screen w-full flex overflow-hidden bg-white text-black",
+    "sidebar_left": "w-72 border-r border-border flex flex-col bg-[#F9FAFB]",
+    "main_center": "flex-1 border-r border-border flex flex-col bg-white min-w-[400px]",
+    "sidebar_right": "w-[40%] min-w-[450px] flex flex-col bg-white",
+    "spacing_scale": "Strict adherence to p-4 and p-6 for panel padding. Use gap-4 for internal component spacing.",
+    "borders": "Expose the skeleton. Use 1px solid borders (border-border) to define all regions. Use rounded-none for sharp brutalist aesthetic."
+  },
+  "components": {
+    "project_creation_wizard": {
+      "type": "Modal or Full-screen Overlay",
+      "design": "Centered box, stark white, heavy shadow (shadow-2xl), 1px solid border. Minimalist input for AI prompt with a prominent 'Generate' button (Klein Blue background).",
+      "interaction": "Typing effect or loading state while AI generates project skeleton."
+    },
+    "multi_agent_visualization": {
+      "type": "Horizontal Header in Center Pane",
+      "design": "3 distinct card segments (flex items) in a row with borders between them. Each representing an agent (Governor, Creator, Launcher). Display icon, name, and status dot.",
+      "states": "Idle (Grey dot), Thinking (Yellow pulsing dot), Working (Blue pulsing dot), Done (Green dot)."
+    },
+    "activity_feed": {
+      "type": "Scrollable List",
+      "design": "Terminal-like but clean. Use JetBrains Mono font. Timestamps on the left. Messages color-coded by agent or log type (info, error, success).",
+      "interaction": "Auto-scroll to bottom. Sticky headers for dates/phases."
+    },
+    "timeline_stepper": {
+      "type": "Vertical List in Left Pane",
+      "design": "Connected vertical lines. Active step highlighted in Klein Blue, completed steps in Green. Shows progression: Planning -> Code Gen -> Review -> Deployment."
+    },
+    "artifact_viewer": {
+      "type": "Tabs component in Right Pane",
+      "design": "Tabs for 'Live Preview', 'Code/Artifacts', 'Logs'. 'Code' view should resemble an IDE (monaco-like, syntax highlighting). 'Live Preview' is a mock browser frame with a top bar."
+    }
+  },
+  "surfaces": {
+    "cards": "Flat background, 1px subtle border, no shadow by default. Hover: slight lift and shadow-sm.",
+    "buttons": "Sharp corners (rounded-none). Primary: bg-[#002FA7] text-white hover:bg-[#002FA7]/90. Secondary: bg-transparent border border-border text-black hover:bg-surface.",
+    "inputs": "Sharp corners, focus:ring-1 focus:ring-primary focus:border-primary."
+  },
+  "motion": {
+    "status_dots": "animate-pulse for active states.",
+    "feed_items": "Staggered fade-in (opacity 0 to 1, translateY 10px to 0).",
+    "tabs": "Instant switch, no sliding animations to maintain functional crispness."
+  },
+  "assets": {
+    "icons": {
+      "library": "lucide-react",
+      "usage": "Use Brain for Governor, TerminalSquare for Creator, Rocket for Launcher. Stroke width 1.5 for crispness."
+    },
+    "images": [
+      {
+        "category": "wizard_background",
+        "url": "https://images.pexels.com/photos/1029622/pexels-photo-1029622.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Clean white abstract architecture to be used at low opacity (10%) or overlaid with white background as a subtle textured backdrop for the Project Creation wizard."
+      }
+    ]
+  },
+  "accessibility": {
+    "contrast": "Ensure minimum 4.5:1 for standard text. Klein blue (#002FA7) on white exceeds this.",
+    "focus": "All interactive elements must have clear focus rings.",
+    "test_ids": "Required on all buttons, tabs, input fields, and feed items (e.g., data-testid='governor-status', data-testid='activity-feed-item')."
+  },
+  "instructions_to_main_agent": [
+    "Install lucide-react if not already present.",
+    "Override default shadcn component radii to rounded-none for the Swiss brutalist look.",
+    "The layout must fill the viewport exactly (100vh) without page scrolling; only the internal panes (Activity Feed, Artifact Viewer, Sidebar) should overflow-y-auto.",
+    "Implement the agent simulation logic using React state and useEffect with setTimeout to mock real-time progression through the timeline phases after project creation.",
+    "Ensure the Right Pane's 'Live Preview' tab contains a mock iframe or stylized div resembling a rendered application.",
+    "Apply fonts globally in index.css: @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap');"
+  ]
+}
